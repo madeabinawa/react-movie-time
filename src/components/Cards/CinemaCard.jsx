@@ -1,12 +1,15 @@
-import { useSelector, useDispatch } from "react-redux"
-import { setSelectedCinema, setSelectedTime } from "@/store/orderSlice"
+import { useSelector, useDispatch } from 'react-redux'
+import { setSelectedCinema, setSelectedTime } from '@/store/orderSlice'
 
 const CinemaTime = ({ isSelectedCinema, cinema, time }) => {
   const dispatch = useDispatch()
-  const isSelectedTime = Boolean(useSelector((state) => state.order.selectedTime) === time)
+  const isSelectedTime = Boolean(
+    useSelector((state) => state.order.selectedTime) === time
+  )
 
   return (
-    <div className={`
+    <div
+      className={`
     w-14
     h-7 
     mr-1 
@@ -25,16 +28,21 @@ const CinemaTime = ({ isSelectedCinema, cinema, time }) => {
         dispatch(setSelectedTime(time))
       }}
     >
-      <span className="flex justify-center items-center text-white text-xs text-center pt-1">{time}</span>
+      <span className='flex justify-center items-center text-white text-xs text-center pt-1'>
+        {time}
+      </span>
     </div>
   )
 }
 
 const CinemaCard = ({ cinema }) => {
-  const isSelectedCinema = Boolean(useSelector((state) => state.order.selectedCinema?.id) === cinema.id)
+  const isSelectedCinema = Boolean(
+    useSelector((state) => state.order.selectedCinema?.id) === cinema.id
+  )
 
   return (
-    <div className={`
+    <div
+      className={`
     w-10/12
     md:w-5/12
     min-h-36
@@ -48,12 +56,23 @@ const CinemaCard = ({ cinema }) => {
     `}
     >
       <div className='w-full flex flex-row justify-between text-base font-normal text-white'>
-        <span className="w-8/12 truncate">{cinema.name}</span>
-        <span className="w-4/12 text-sm text-right font-semibold"> Rp.300.000 </span>
+        <span className='w-8/12 truncate'>{cinema.name}</span>
+        <span className='w-4/12 text-sm text-right font-semibold'>
+          Rp.300.000
+        </span>
       </div>
-      <div className='flex flex-wrap text-xs font-light text-white'>{cinema.address}</div>
-      <div className="flex flex-wrap mt-3">
-        {cinema?.time?.map((time) => <CinemaTime key={time} isSelectedCinema={isSelectedCinema} cinema={cinema} time={time} />)}
+      <div className='flex flex-wrap text-xs font-light text-white'>
+        {cinema.address}
+      </div>
+      <div className='flex flex-wrap mt-3'>
+        {cinema?.time?.map((time) => (
+          <CinemaTime
+            key={time}
+            isSelectedCinema={isSelectedCinema}
+            cinema={cinema}
+            time={time}
+          />
+        ))}
       </div>
     </div>
   )

@@ -43,7 +43,8 @@ const Sidebar = () => {
   return (
     <div className="hidden lg:block lg:w-64 h-screen bg-dark">
       <div className="px-6 pt-8">
-        <div className="flex items-center justify-end">
+        <div className="flex items-center justify-between">
+          <h1 className="text-gray-500 font-bold hover:text-white">Movie Time</h1>
           <button className="flex items-center justify-center p-0.5 rounded">
             <BiChevronLeftCircle className="text-gray-500 text-xl"
               onClick={handleClose}

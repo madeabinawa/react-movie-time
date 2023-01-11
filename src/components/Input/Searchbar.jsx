@@ -32,7 +32,6 @@ const Searchbar = () => {
       page: "1",
       include_adult: "false",
     }),
-    suspense: false,
     enabled: search?.isFocus && !!debounceSearch,
     onSuccess: (data) => {
       const { results = [] } = data?.data ?? {}
